@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get_it/get_it.dart';
+import 'package:pokedex/core/ui/pokemon_type.dart';
 import 'package:pokedex/di/dependency_injection.dart';
 import 'package:pokedex/feature/pokemons/domain/entity/pokemon_entity.dart';
 import 'package:pokedex/feature/pokemons/domain/usecases/get_pokemon_usecase.dart';
 import 'package:pokedex/feature/pokemons/domain/usecases/pokedex_usecases.dart';
+import 'package:pokedex/utils/text_converter.dart';
 
 class PokemonTile extends StatefulWidget {
   final int index;
@@ -58,28 +62,41 @@ class _PokemonTileState extends State<PokemonTile> {
             margin: const EdgeInsets.only(top: 50),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
-                border: Border.all(
-                  color: Theme.of(context).colorScheme.primaryContainer, // Border color
-                  width: 2, // Border width
-                ),
-                borderRadius: BorderRadius.circular(12)),
+              border: Border.all(
+                color: Theme.of(context)
+                    .colorScheme
+                    .primaryContainer,
+                width: 2,
+              ),
+              borderRadius: BorderRadius.circular(12),
+            ),
             child: Padding(
-              padding: const EdgeInsets.only(top: 40.0),
+              padding: const EdgeInsets.only(top: 30.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "name: ${pokemon!.name}",
-                    style: const TextStyle(overflow: TextOverflow.ellipsis),
+                    capitalizeFirstLetter(pokemon!.name),
+                    style: const TextStyle(
+                      overflow: TextOverflow.ellipsis,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
                   ),
-                  Text(
-                    "types: ${pokemon!.types.join(', ')}",
-                    style: const TextStyle(overflow: TextOverflow.ellipsis),
+                  const SizedBox(
+                    height: 10,
                   ),
-                  Text(
-                    "weight: ${pokemon!.weight}",
-                    style: const TextStyle(overflow: TextOverflow.ellipsis),
-                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      for (String type in pokemon!.types)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: PokemonType(type: type),
+                        ),
+                    ],
+                  )
                 ],
               ),
             ),

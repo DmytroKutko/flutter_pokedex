@@ -79,6 +79,7 @@ class _PokdexPageState extends State<PokdexPage> {
                 appBar: AppBar(
                   centerTitle: true,
                   title: const Text("Pokedex"),
+                  backgroundColor: Colors.white,
                 ),
                 body: RefreshIndicator(
                   onRefresh: refresh,
