@@ -23,6 +23,11 @@ class _PokdexPageState extends State<PokdexPage> {
     super.initState();
   }
 
+  Future refresh() async {
+    pokemons.clear();
+    bloc.add(LoadPokedex());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<PokedexBloc, PokedexState>(
@@ -53,11 +58,14 @@ class _PokdexPageState extends State<PokdexPage> {
                   centerTitle: true,
                   title: const Text("Pokedex"),
                 ),
-                body: ListView.builder(
-                  itemCount: pokemons.length,
-                  itemBuilder: (context, index) {
-                    return Text(pokemons[index].name);
-                  },
+                body: RefreshIndicator(
+                  onRefresh: refresh,
+                  child: ListView.builder(
+                    itemCount: pokemons.length,
+                    itemBuilder: (context, index) {
+                      return Text(pokemons[index].name);
+                    },
+                  ),
                 ),
               );
             }
