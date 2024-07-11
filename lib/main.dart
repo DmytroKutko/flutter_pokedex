@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/di/dependency_injection.dart';
 import 'package:pokedex/feature/pokemons/presentation/pages/pokedex_page.dart';
 
-void main() {
+void main() async{
   setupLocator();
   runApp(const MyApp());
 }
