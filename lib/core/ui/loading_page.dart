@@ -21,3 +21,18 @@ class LoadingPage extends StatelessWidget {
     );
   }
 }
+
+class PagingLoadingIndicator extends StatelessWidget {
+  const PagingLoadingIndicator({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Platform.isAndroid
+        ? const Center(
+            child: CircularProgressIndicator(),
+          )
+        : const Center(
+            child: CupertinoActivityIndicator(),
+          );
+  }
+}

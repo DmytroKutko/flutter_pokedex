@@ -22,4 +22,15 @@ class NetworkService {
       throw Exception('Failed to load data');
     }
   }
+
+  Future<Map<String, dynamic>> getPokemon(int id) async {
+    final path = "/api/v2/pokemon/$id";
+    final uri = Uri.https(baseUrl, path);
+    final response = await client.get(uri);
+    if (response.statusCode == 200) {
+      return json.decode(response.body) as Map<String, dynamic>;
+    } else {
+      throw Exception('Failed to load data');
+    }
+  }
 }

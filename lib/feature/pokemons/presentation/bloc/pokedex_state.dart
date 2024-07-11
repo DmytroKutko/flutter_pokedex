@@ -17,10 +17,10 @@ final class PokedexSuccess extends PokedexState {
   PokedexSuccess({required this.list});
 }
 
-final class PokedexErrorPaging extends PokedexStateListener {
+final class PokedexErrorPaging extends PokedexStateListener {}
+
+final class PokedexSuccessPaging extends PokedexStateListener {
   final List<PokedexEntity> list;
 
-  PokedexErrorPaging({required this.list});
+  PokedexSuccessPaging({required this.list});
 }
-
-final class PokedexSuccessPaging extends PokedexStateListener {}

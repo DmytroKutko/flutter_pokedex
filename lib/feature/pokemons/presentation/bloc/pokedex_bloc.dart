@@ -13,8 +13,8 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
   final PokedexUsecases usecases = sl<PokedexUsecases>();
 
   PokedexBloc() : super(PokedexInitial()) {
-    on<PokedexEvent>((event, emit) {});
     on<LoadPokedex>(loadPokedex);
+    on<PokedexLoadMoreItems>(pokedexLoadMoreItems);
   }
 
   FutureOr<void> loadPokedex(
@@ -24,5 +24,12 @@ class PokedexBloc extends Bloc<PokedexEvent, PokedexState> {
     final pokemons = await usecases.getPokemonsUsecase.getPokedex(20, 0);
 
     emit(PokedexSuccess(list: pokemons));
+  }
+
+  FutureOr<void> pokedexLoadMoreItems(
+      PokedexLoadMoreItems event, Emitter<PokedexState> emit) async {
+    final pokemons = await usecases.getPokemonsUsecase
+        .getPokedex(event.length, event.offset);
+    emit(PokedexSuccessPaging(list: pokemons));
   }
 }
