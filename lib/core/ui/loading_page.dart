@@ -8,12 +8,16 @@ class LoadingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isAndroid
-        ? const Center(
-            child: CircularProgressIndicator(),
-          )
-        : const Center(
-            child: CupertinoActivityIndicator(),
-          );
+    return Scaffold(
+      body: SafeArea(
+        child: Platform.isAndroid
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : const Center(
+                child: CupertinoActivityIndicator(),
+              ),
+      ),
+    );
   }
 }

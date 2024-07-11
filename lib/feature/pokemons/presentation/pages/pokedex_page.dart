@@ -31,39 +31,40 @@ class _PokdexPageState extends State<PokdexPage> {
       buildWhen: (previous, current) => current is! PokedexStateListener,
       listener: (context, state) {
         switch (state) {
-          case PokedexSuccessPaging(): {
-
-          }
-          case PokedexErrorPaging(): {
-
-          }
-          default: break;
+          case PokedexSuccessPaging():
+            {}
+          case PokedexErrorPaging():
+            {}
+          default:
+            break;
         }
       },
       builder: (context, state) {
         switch (state) {
-          case PokedexLoading(): {
-            return const LoadingPage();
-          }
-          case PokedexSuccess(): {
-            pokemons.addAll(state.list);
-            return Scaffold(
-              appBar: AppBar(
-                centerTitle: true,
-                title: const Text("Pokedex"),
-              ),
-              body: ListView.builder(
-                itemCount: pokemons.length,
-                itemBuilder: (context, index) {
-                  return Text(pokemons[index].name);
-                },
-              
-              ),
-            );
-          }
-          case PokedexError(): {
-            return const ErrorPage();
-          }
+          case PokedexLoading():
+            {
+              return const LoadingPage();
+            }
+          case PokedexSuccess():
+            {
+              pokemons.addAll(state.list);
+              return Scaffold(
+                appBar: AppBar(
+                  centerTitle: true,
+                  title: const Text("Pokedex"),
+                ),
+                body: ListView.builder(
+                  itemCount: pokemons.length,
+                  itemBuilder: (context, index) {
+                    return Text(pokemons[index].name);
+                  },
+                ),
+              );
+            }
+          case PokedexError():
+            {
+              return const ErrorPage();
+            }
           default:
             return const SizedBox();
         }

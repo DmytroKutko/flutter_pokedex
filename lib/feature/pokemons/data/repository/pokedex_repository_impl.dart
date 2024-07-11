@@ -13,14 +13,10 @@ class PokedexRepositoryImpl extends PokedexRepository {
     try {
       final Map<String, dynamic> responseData =
           await networkService.getPokedex(limit, offset);
-
-          print(responseData);
-
       // Extract Pokemon entities from the response data
       final List<dynamic> results = responseData['results'] ?? [];
       List<PokedexEntity> pokedexEntities =
           results.map((json) => PokedexModel.fromJson(json)).toList();
-
       return pokedexEntities;
     } catch (e) {
       throw Exception('Failed to fetch Pokémon: $e');

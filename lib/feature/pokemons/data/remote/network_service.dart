@@ -16,7 +16,7 @@ class NetworkService {
     };
     final uri = Uri.https(baseUrl, path, queryParameters);
     final response = await client.get(uri);
-    if (response.statusCode >= 200 && response.statusCode > 300) {
+    if (response.statusCode == 200) {
       return json.decode(response.body) as Map<String, dynamic>;
     } else {
       throw Exception('Failed to load data');
