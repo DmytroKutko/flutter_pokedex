@@ -9,148 +9,292 @@ class PokemonType extends StatelessWidget {
   Widget build(BuildContext context) {
     switch (type) {
       case "normal":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.grey,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.grey,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "fire":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.orange,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.orange,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "water":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.blue,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.blue,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "grass":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.green,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.green,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
+
       case "electric":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.yellow,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.yellow,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "ice":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.lightBlue,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.lightBlue,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "fighting":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.red,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.red,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "poison":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.purple,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.purple,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "ground":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.grey,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.brown,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "flying":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.lightBlueAccent,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.lightBlueAccent,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "psychic":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.orangeAccent,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.orangeAccent,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "bug":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.lightGreen,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.lightGreen,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "rock":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.grey,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.grey,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "ghost":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.purple,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.purple,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "dark":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.blueGrey,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.blueGrey,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "dragon":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.lightBlue,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.blue[800],
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "steel":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.blueGrey,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.blueGrey,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
 
       case "fairy":
-        return SvgPicture.asset(
-          'assets/icons/$type.svg',
-          width: 30.0,
-          height: 30.0,
-          color: Colors.pinkAccent,
+        return Container(
+          height: 40.0,
+          width: 40.0,
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(25),
+            color: Colors.pinkAccent,
+          ),
+          child: SvgPicture.asset(
+            'assets/icons/$type.svg',
+            width: 30.0,
+            height: 30.0,
+          ),
         );
-
 
       default:
         return const SizedBox();

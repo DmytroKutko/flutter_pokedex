@@ -84,6 +84,7 @@ class _PokdexPageState extends State<PokdexPage> {
                 body: RefreshIndicator(
                   onRefresh: refresh,
                   child: Container(
+                    color: Colors.white,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: StaggeredGridView.countBuilder(
                       controller: controller,
