@@ -54,13 +54,12 @@ class _PokemonTileState extends State<PokemonTile> {
       return Stack(
         children: [
           Container(
-            height: 150,
             width: double.infinity,
             margin: const EdgeInsets.only(top: 50),
             padding: const EdgeInsets.all(12),
             decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.grey, // Border color
+                  color: Theme.of(context).colorScheme.primaryContainer, // Border color
                   width: 2, // Border width
                 ),
                 borderRadius: BorderRadius.circular(12)),
@@ -69,21 +68,29 @@ class _PokemonTileState extends State<PokemonTile> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("name: ${pokemon!.name}"),
-                  Text("types: ${pokemon!.types.join(', ')}"),
-                  Text("weight: ${pokemon!.weight}"),
+                  Text(
+                    "name: ${pokemon!.name}",
+                    style: const TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                  Text(
+                    "types: ${pokemon!.types.join(', ')}",
+                    style: const TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
+                  Text(
+                    "weight: ${pokemon!.weight}",
+                    style: const TextStyle(overflow: TextOverflow.ellipsis),
+                  ),
                 ],
               ),
             ),
           ),
-          Positioned(
-            top: 0,
-            width: 180,
+          SizedBox(
+            width: double.infinity,
             child: Image.network(
               pokemon!.avatarUrl,
               height: 100,
               width: 100,
-              fit: BoxFit.contain,
+              fit: BoxFit.fitHeight,
             ),
           ),
         ],
