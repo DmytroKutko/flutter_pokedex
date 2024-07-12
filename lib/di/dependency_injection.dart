@@ -8,6 +8,7 @@ import 'package:pokedex/feature/pokedex/domain/usecases/pokedex_usecases.dart';
 import 'package:pokedex/feature/pokedex/presentation/bloc/pokedex_bloc.dart';
 
 import 'package:http/http.dart' as http;
+import 'package:pokedex/utils/providers/pokemon_provider.dart';
 
 final sl = GetIt.I;
 
@@ -28,4 +29,7 @@ void setupLocator() {
 
   // Pokedex bloc
   sl.registerSingleton<PokedexBloc>(PokedexBloc());
+
+  // Pokemon provider
+  sl.registerSingleton<PokemonProvider>(PokemonProvider());
 }

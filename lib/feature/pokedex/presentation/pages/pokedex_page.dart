@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/ui/error_page.dart';
 import 'package:pokedex/core/ui/loading_page.dart';
-import 'package:pokedex/core/ui/paging_loading_indicator.dart';
 import 'package:pokedex/di/dependency_injection.dart';
 import 'package:pokedex/feature/pokedex/domain/entity/pokedex_entity.dart';
 import 'package:pokedex/feature/pokedex/presentation/bloc/pokedex_bloc.dart';
 import 'package:pokedex/feature/pokedex/presentation/wigets/pokemon_tile.dart';
-import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
-import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
 class PokedexPage extends StatefulWidget {
   const PokedexPage({super.key});
@@ -88,23 +84,11 @@ class _PokedexPageState extends State<PokedexPage> {
                     color: Colors.white,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: GridView.builder(
-                      itemCount: pokemons.length + 1,
+                      itemCount: pokemons.length,
                       controller: controller,
                       itemBuilder: (context, index) {
-                        if (index < pokemons.length) {
-                          int id = index + 1;
-                          return GestureDetector(
-                            onTap: () {
-                              GoRouter.of(context).go("/pokemon");
-                            },
-                            child: PokemonTile(id: id),
-                          );
-                        } else {
-                          return const Padding(
-                            padding: EdgeInsets.all(12),
-                            child: PagingLoadingIndicator(),
-                          );
-                        }
+                        int id = index + 1;
+                        return PokemonTile(id: id);
                       },
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(

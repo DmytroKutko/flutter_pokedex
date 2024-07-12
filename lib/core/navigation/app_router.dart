@@ -16,8 +16,8 @@ final GoRouter router = GoRouter(
       name: "pokemon",
       path: "/pokemon",
       builder: (BuildContext context, GoRouterState state) {
-        // final pokemonId = state.extra as int;
-        return const PokemonPage(pokemonId: 1);
+        final pokemonId = state.extra as int;
+        return PokemonPage(pokemonId: pokemonId);
       },
     ),
   ],
