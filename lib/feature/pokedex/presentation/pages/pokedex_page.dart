@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pokedex/core/ui/error_page.dart';
 import 'package:pokedex/core/ui/loading_page.dart';
 import 'package:pokedex/core/ui/paging_loading_indicator.dart';
@@ -10,14 +11,14 @@ import 'package:pokedex/feature/pokedex/presentation/wigets/pokemon_tile.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
-class PokdexPage extends StatefulWidget {
-  const PokdexPage({super.key});
+class PokedexPage extends StatefulWidget {
+  const PokedexPage({super.key});
 
   @override
-  State<PokdexPage> createState() => _PokdexPageState();
+  State<PokedexPage> createState() => _PokedexPageState();
 }
 
-class _PokdexPageState extends State<PokdexPage> {
+class _PokedexPageState extends State<PokedexPage> {
   final PokedexBloc bloc = sl<PokedexBloc>();
   final List<PokedexEntity> pokemons = [];
   final controller = ScrollController();
@@ -86,14 +87,18 @@ class _PokdexPageState extends State<PokdexPage> {
                   child: Container(
                     color: Colors.white,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: StaggeredGridView.countBuilder(
+                    child: GridView.builder(
+                      itemCount: pokemons.length + 1,
                       controller: controller,
-                      crossAxisCount: 2, // Number of columns
-                      itemCount:
-                          pokemons.length + 1, // Additional item for the loader
                       itemBuilder: (context, index) {
                         if (index < pokemons.length) {
-                          return PokemonTile(index: index);
+                          int id = index + 1;
+                          return GestureDetector(
+                            onTap: () {
+                              GoRouter.of(context).go("/pokemon");
+                            },
+                            child: PokemonTile(id: id),
+                          );
                         } else {
                           return const Padding(
                             padding: EdgeInsets.all(12),
@@ -101,15 +106,12 @@ class _PokdexPageState extends State<PokdexPage> {
                           );
                         }
                       },
-                      staggeredTileBuilder: (index) {
-                        if (index < pokemons.length) {
-                          return const StaggeredTile.fit(1);
-                        } else {
-                          return const StaggeredTile.fit(2);
-                        }
-                      },
-                      mainAxisSpacing: 8.0, // Vertical spacing between items
-                      crossAxisSpacing: 8.0, // Horizontal spacing between items
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisSpacing: 12.0,
+                        crossAxisSpacing: 12.0,
+                      ),
                     ),
                   ),
                 ),

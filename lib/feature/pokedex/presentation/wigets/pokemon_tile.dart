@@ -7,9 +7,9 @@ import 'package:pokedex/feature/pokedex/domain/usecases/pokedex_usecases.dart';
 import 'package:pokedex/utils/text_converter.dart';
 
 class PokemonTile extends StatefulWidget {
-  final int index;
+  final int id;
 
-  const PokemonTile({super.key, required this.index});
+  const PokemonTile({super.key, required this.id});
 
   @override
   State<PokemonTile> createState() => _PokemonTileState();
@@ -30,7 +30,7 @@ class _PokemonTileState extends State<PokemonTile> {
 
   Future<void> loadData() async {
     try {
-      var data = await pokemonUsecase.getPokemon(widget.index + 1);
+      var data = await pokemonUsecase.getPokemon(widget.id);
       if (mounted) {
         setState(() {
           pokemon = data;

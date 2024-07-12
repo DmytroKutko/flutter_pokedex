@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/core/navigation/app_router.dart';
 import 'package:pokedex/di/dependency_injection.dart';
-import 'package:pokedex/feature/pokedex/presentation/pages/pokedex_page.dart';
 
 void main() {
   setupLocator();
@@ -12,9 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      home: PokdexPage(),
+      routerConfig: router,
     );
   }
 }
