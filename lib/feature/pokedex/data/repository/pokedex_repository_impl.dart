@@ -1,9 +1,9 @@
-import 'package:pokedex/feature/pokemons/data/model/pokedex_model.dart';
-import 'package:pokedex/feature/pokemons/data/model/pokemon_model.dart';
-import 'package:pokedex/feature/pokemons/data/remote/network_service.dart';
-import 'package:pokedex/feature/pokemons/domain/entity/pokedex_entity.dart';
-import 'package:pokedex/feature/pokemons/domain/entity/pokemon_entity.dart';
-import 'package:pokedex/feature/pokemons/domain/repository/pokedex_repository.dart';
+import 'package:pokedex/feature/pokedex/data/model/pokedex_model.dart';
+import 'package:pokedex/feature/pokedex/data/model/pokemon_model.dart';
+import 'package:pokedex/feature/pokedex/data/remote/network_service.dart';
+import 'package:pokedex/feature/pokedex/domain/entity/pokedex_entity.dart';
+import 'package:pokedex/feature/pokedex/domain/entity/pokemon_entity.dart';
+import 'package:pokedex/feature/pokedex/domain/repository/pokedex_repository.dart';
 
 class PokedexRepositoryImpl extends PokedexRepository {
   final NetworkService networkService;

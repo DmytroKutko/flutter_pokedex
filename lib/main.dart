@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/di/dependency_injection.dart';
-import 'package:pokedex/feature/pokemons/presentation/pages/pokedex_page.dart';
+import 'package:pokedex/feature/pokedex/presentation/pages/pokedex_page.dart';
 
 void main() {
   setupLocator();

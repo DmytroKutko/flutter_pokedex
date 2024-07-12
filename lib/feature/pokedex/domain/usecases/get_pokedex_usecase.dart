@@ -1,6 +1,6 @@
-import 'package:pokedex/feature/pokemons/domain/entity/pokedex_entity.dart';
+import 'package:pokedex/feature/pokedex/domain/entity/pokedex_entity.dart';
 
-import 'package:pokedex/feature/pokemons/domain/repository/pokedex_repository.dart';
+import 'package:pokedex/feature/pokedex/domain/repository/pokedex_repository.dart';
 
 class GetPokedexUsecase {
   final PokedexRepository repository;

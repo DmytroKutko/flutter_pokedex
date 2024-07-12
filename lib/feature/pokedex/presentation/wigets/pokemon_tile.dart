@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:get_it/get_it.dart';
 import 'package:pokedex/core/ui/pokemon_type.dart';
 import 'package:pokedex/di/dependency_injection.dart';
-import 'package:pokedex/feature/pokemons/domain/entity/pokemon_entity.dart';
-import 'package:pokedex/feature/pokemons/domain/usecases/get_pokemon_usecase.dart';
-import 'package:pokedex/feature/pokemons/domain/usecases/pokedex_usecases.dart';
+import 'package:pokedex/feature/pokedex/domain/entity/pokemon_entity.dart';
+import 'package:pokedex/feature/pokedex/domain/usecases/get_pokemon_usecase.dart';
+import 'package:pokedex/feature/pokedex/domain/usecases/pokedex_usecases.dart';
 import 'package:pokedex/utils/text_converter.dart';
 
 class PokemonTile extends StatefulWidget {

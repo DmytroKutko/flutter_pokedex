@@ -1,4 +1,4 @@
-import 'package:pokedex/feature/pokemons/domain/entity/pokemon_entity.dart';
+import 'package:pokedex/feature/pokedex/domain/entity/pokemon_entity.dart';
 
 class PokemonModel extends PokemonEntity {
   PokemonModel({

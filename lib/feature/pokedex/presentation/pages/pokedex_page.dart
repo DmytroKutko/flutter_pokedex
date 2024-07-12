@@ -4,9 +4,9 @@ import 'package:pokedex/core/ui/error_page.dart';
 import 'package:pokedex/core/ui/loading_page.dart';
 import 'package:pokedex/core/ui/paging_loading_indicator.dart';
 import 'package:pokedex/di/dependency_injection.dart';
-import 'package:pokedex/feature/pokemons/domain/entity/pokedex_entity.dart';
-import 'package:pokedex/feature/pokemons/presentation/bloc/pokedex_bloc.dart';
-import 'package:pokedex/feature/pokemons/presentation/wigets/pokemon_tile.dart';
+import 'package:pokedex/feature/pokedex/domain/entity/pokedex_entity.dart';
+import 'package:pokedex/feature/pokedex/presentation/bloc/pokedex_bloc.dart';
+import 'package:pokedex/feature/pokedex/presentation/wigets/pokemon_tile.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
 import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
