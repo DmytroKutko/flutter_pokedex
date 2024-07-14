@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:pokedex/core/navigation/app_router.dart';
 import 'package:pokedex/core/ui/error_page.dart';
 import 'package:pokedex/core/ui/loading_page.dart';
+import 'package:pokedex/core/ui/paging_loading_indicator.dart';
 import 'package:pokedex/di/dependency_injection.dart';
 import 'package:pokedex/feature/pokedex/domain/entity/pokedex_entity.dart';
 import 'package:pokedex/feature/pokedex/presentation/bloc/pokedex_bloc.dart';
 import 'package:pokedex/feature/pokedex/presentation/wigets/pokemon_tile.dart';
+import 'package:staggered_grid_view_flutter/widgets/staggered_grid_view.dart';
+import 'package:staggered_grid_view_flutter/widgets/staggered_tile.dart';
 
 class PokedexPage extends StatefulWidget {
   const PokedexPage({super.key});
@@ -83,19 +88,36 @@ class _PokedexPageState extends State<PokedexPage> {
                   child: Container(
                     color: Colors.white,
                     padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: GridView.builder(
-                      itemCount: pokemons.length,
+                    child: StaggeredGridView.countBuilder(
                       controller: controller,
+                      crossAxisCount: 2, // Number of columns
+                      itemCount:
+                          pokemons.length + 1, // Additional item for the loader
                       itemBuilder: (context, index) {
-                        int id = index + 1;
-                        return PokemonTile(id: id);
+                        if (index < pokemons.length) {
+                          int id = index + 1;
+                          return GestureDetector(
+                            onTap: () {
+                              context.push("/pokemon");
+                            },
+                            child: PokemonTile(id: id),
+                          );
+                        } else {
+                          return const Padding(
+                            padding: EdgeInsets.all(12),
+                            child: PagingLoadingIndicator(),
+                          );
+                        }
                       },
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 12.0,
-                        crossAxisSpacing: 12.0,
-                      ),
+                      staggeredTileBuilder: (index) {
+                        if (index < pokemons.length) {
+                          return const StaggeredTile.fit(1);
+                        } else {
+                          return const StaggeredTile.fit(2);
+                        }
+                      },
+                      mainAxisSpacing: 8.0, // Vertical spacing between items
+                      crossAxisSpacing: 8.0, // Horizontal spacing between items
                     ),
                   ),
                 ),
